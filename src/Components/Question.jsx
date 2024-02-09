@@ -25,7 +25,7 @@ export default function Question(props) {
   return (
     <div className="w-full h-100 justify-center align-middle ">
     
-        <Progress value={props.progress}  className="mx-auto w-4/5 p-y-3"/>
+        <Progress value={props.progress}  className="mx-auto w-4/5 p-y-3 md:w-1/2"/>
 
         <Card className = "border mx-auto w-4/5 border-transparent">
             
@@ -33,8 +33,8 @@ export default function Question(props) {
             <CardTitle className='text-center '>{props.question}</CardTitle>
             
         </CardHeader>
-        <CardContent className="grid gap-6 justify-self-center">
-            <RadioGroup defaultValue="card" className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <CardContent className="grid gap-4 justify-self-center">
+            <RadioGroup defaultValue="card" className="grid grid-cols-1 md:grid-cols-2 gap-4 md:w-1/2 md:mx-auto">
                 {props.options.map((option) => (
                     <div key={option.value}>
                     <RadioGroupItem value={option.value} id={option.value} className="peer sr-only" />
@@ -50,7 +50,7 @@ export default function Question(props) {
             
         </CardContent>
         <CardFooter>
-            <Button className="mx-auto text-2xl w-4/5 p-8"> Next   <ArrowRight className="ml-2" /> </Button>
+            <Button className="mx-auto md:w-1/2 text-2xl w-4/5 p-8"> Next   <ArrowRight className="ml-2" /> </Button>
         </CardFooter>
         </Card>
     </div>
