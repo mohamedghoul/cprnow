@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionContainer from './Components/QuestionContainer'; // Import the Welcome component
+import QuestionContainer from './Components/QuestionContainer'; 
 import CPRContainer from './Components/CPRContainer';
 import { Home } from 'lucide-react';
 import HomePage from './Components/HomePage';
@@ -11,11 +11,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 function App() {
   return (
     <Router>
       <div className="flex flex-col h-screen">
-        {/* Navigation */}
+        {/* Navigation 
         <nav className="bg-green-900 text-white p-4">
           <ul className="flex justify-center space-x-4">
             <li>
@@ -23,7 +24,7 @@ function App() {
             </li>
             
           </ul>
-        </nav>
+        </nav>*/}
 
         {/* Routes */}
         <div className="flex-grow p-4">

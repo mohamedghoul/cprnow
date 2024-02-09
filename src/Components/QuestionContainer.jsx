@@ -6,7 +6,7 @@ function QuestionContainer() {
  
 
   return (
-    <div className='flex items-center justify-center h-screen'>
+    <div className='flex justify-items-center h-screen items-center '>
       <Question 
         question="Question" 
         progress = "20"
