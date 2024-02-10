@@ -9,7 +9,7 @@ export default function HomePage() {
      <div className="flex ">
         <Label></Label>
        
-            <Link to="cpr" className="hover:text-blue-200 transition duration-150 ease-in-out"> 
+            <Link to="assessment" className="hover:text-blue-200 transition duration-150 ease-in-out"> 
               <Button>Do CPR now
               </Button>
             </Link>

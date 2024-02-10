@@ -8,6 +8,8 @@ import help from "./assets/help.jpg"
 import cpr0 from "./assets/Cpr0.jpg"
 import nocpr from "./assets/nocpr.jpg"
 import question from './assets/question.jpg'
+import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function Assessment() {
     // Questions are hardcoded and stored here temporarily until a new storage solution is implemented
@@ -81,7 +83,7 @@ function Assessment() {
             description: "No CPR required. Immediate medical care is necessary. End assessment",
             imageSrc: nocpr,
             message: `
-            The patient is breathing but is unresponsive.
+            The patient is responsive and breathing, but medical attention may be needed.
             Call or have someone call emergency services immediately.
             `
         },
@@ -138,7 +140,14 @@ function Assessment() {
                 <RxArrowLeft className="text-white text-3xl m-2" />
                 Pre-Assessment
             </Label>
+            <header className="bg-gray-800 h-[10vh] flex justify-center items-center">
+                <Link to={"/"}><RxArrowLeft className="text-white text-3xl m-2" /></Link>
+                <h1 className="text-center">CPRnow Pre-Assessment</h1>
+            </header>
             <main className="p-2">
+                {assessmentStatus === 1 && (
+                    <Navigate to="/cpr" />
+                )}
                 {assessmentStatus > 1 ? (
                     <AssessmentResult imageSrc ={statusCodes.find(statusCode => statusCode.code === assessmentStatus).imageSrc} message={statusCodes.find(statusCode => statusCode.code === assessmentStatus).message} />
                 ) : (
