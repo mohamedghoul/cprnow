@@ -9,5 +9,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="text/javascript" src="node_modules/accessibility/dist/main.bundle.js"></script>
+    <script src="https://unpkg.com/regenerator-runtime@0.13.1/runtime.js"></script>
+    <script src="https://unpkg.com/web-reader@0.1.0/dist/web-reader.min.js"></script> 
+    <script>
+       var webReader = new WebReader();
+    
+       webReader.enableShortcuts();
+    </script> 
   </body>
 </html>
