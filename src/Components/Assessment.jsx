@@ -2,6 +2,8 @@ import { RxArrowLeft } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import Question from "./Question";
 import AssessmentResult from "./AssessmentResult";
+import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function Assessment() {
     // Questions are hardcoded and stored here temporarily until a new storage solution is implemented
@@ -73,7 +75,7 @@ function Assessment() {
             code: 2,
             description: "CPR is not needed, victim is breathing, and medical attention is needed. Exit the assessment",
             message: `
-            The patient is breathing but is unresponsive.
+            The patient is responsive and breathing, but medical attention may be needed.
             Call or have someone call emergency services immediately.
             `
         },
@@ -126,10 +128,13 @@ function Assessment() {
     return (
         <div>
             <header className="bg-gray-800 h-[10vh] flex justify-center items-center">
-                <RxArrowLeft className="text-white text-3xl m-2" />
+                <Link to={"/"}><RxArrowLeft className="text-white text-3xl m-2" /></Link>
                 <h1 className="text-center">CPRnow Pre-Assessment</h1>
             </header>
             <main className="p-2">
+                {assessmentStatus === 1 && (
+                    <Navigate to="/cpr" />
+                )}
                 {assessmentStatus > 1 ? (
                     <AssessmentResult message={statusCodes.find(statusCode => statusCode.code === assessmentStatus).message} />
                 ) : (
