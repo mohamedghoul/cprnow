@@ -4,6 +4,7 @@ import { Label } from "./ui/label";
 import {Card, CardContent, CardFooter, CardTitle, CardHeader, CardDescription } from "./ui/card";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import {ArrowRight} from "lucide-react"
+import { Progress } from "./ui/progress";
 
 function Question(props) {
     function handleSelectAnswer(answer) {
@@ -14,7 +15,7 @@ function Question(props) {
     return (
         <div className="w-full h-100 justify-center align-middle ">
         
-            {/*<Progress value={props.progress}  className="mx-auto w-4/5 p-y-3 md:w-1/2"/>*/}
+            <Progress value={props.progress}  className="mx-auto w-4/5 p-y-3 md:w-1/2"/>
 
             <Card className = "border mx-auto w-4/5 border-transparent">
                 

@@ -19,6 +19,7 @@ function Assessment() {
             id: 1,
             question: "Is there any immediate danger to you or others at the scene?",
             hint: null,
+            progress: 20,
             imageSrc: question,
             answers: [
                 {
@@ -37,6 +38,7 @@ function Assessment() {
             id: 2,
             question: "Is the patient responsive?",
             imageSrc: cpr01,
+            progress: 50,
             hint: "Try gently shaking the patient and asking if they are okay",
             answers: [
                 {
@@ -55,6 +57,7 @@ function Assessment() {
             id: 3,
             question: "Is the patient breathing normally or at all?",
             imageSrc: cpr0,
+            progress: 70,
             hint: "Look for the patient's chest to rise and fall",
             answers: [
                 {
@@ -137,13 +140,9 @@ function Assessment() {
     return (
         <div>
             <Label className="bg-gray-800 h-[10vh] flex justify-center items-center text-center text-white text-2xl">
-                <RxArrowLeft className="text-white text-3xl m-2" />
+            <Link to={"/"}><RxArrowLeft className="text-white text-3xl m-2" /></Link>
                 Pre-Assessment
             </Label>
-            <header className="bg-gray-800 h-[10vh] flex justify-center items-center">
-                <Link to={"/"}><RxArrowLeft className="text-white text-3xl m-2" /></Link>
-                <h1 className="text-center">CPRnow Pre-Assessment</h1>
-            </header>
             <main className="p-2">
                 {assessmentStatus === 1 && (
                     <Navigate to="/cpr" />
