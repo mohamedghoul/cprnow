@@ -93,6 +93,7 @@ function Assessment() {
             description: "CPR is not needed, victim is breathing, and no immediate danger is present. Exit the assessment",
             message: `
             The patient is breathing and there is no immediate danger to you or others at the scene, hence CPR is not needed.
+            However, the patient may still need medical attention. Call or have someone call emergency services immediately.
             `
         }
     ]
