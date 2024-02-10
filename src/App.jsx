@@ -11,8 +11,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Assessment from "./Components/Assessment"
 
 function App() {
+
   return (
     <Router>
       <div className="flex flex-col h-screen">
@@ -37,6 +39,12 @@ function App() {
       </div>
     </Router>
   );
+  //   <div className="flex flex-col justify-around">
+  //     <main className="">
+  //       <Assessment />
+  //     </main>
+  //   </div>
+  // )
 }
 
 

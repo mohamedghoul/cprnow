@@ -71,6 +71,18 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  h1 {
+    @apply xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold text-gray-300;
+  }
+  h2 {
+    @apply xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg font-bold;
+  }
+  h3 {
+    @apply xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base font-bold;
+  }
+  p {
+    @apply text-base leading-relaxed;
   }
 }
