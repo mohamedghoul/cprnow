@@ -2,6 +2,12 @@ import { RxArrowLeft } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import Question from "./Question";
 import AssessmentResult from "./AssessmentResult";
+import { Label } from "./ui/label";
+import cpr01 from "./assets/Cpr01.jpg"
+import help from "./assets/help.jpg"
+import cpr0 from "./assets/Cpr0.jpg"
+import nocpr from "./assets/nocpr.jpg"
+import question from './assets/question.jpg'
 
 function Assessment() {
     // Questions are hardcoded and stored here temporarily until a new storage solution is implemented
@@ -10,8 +16,8 @@ function Assessment() {
         {
             id: 1,
             question: "Is there any immediate danger to you or others at the scene?",
-            imageSrc: "/placeholder.png",
             hint: null,
+            imageSrc: question,
             answers: [
                 {
                     answer: "Yes",
@@ -27,9 +33,9 @@ function Assessment() {
         },
         {
             id: 2,
-            question: "Is the victim responsive?",
-            imageSrc: "/placeholder.png",
-            hint: "Try gently shaking the victim and asking if they are okay",
+            question: "Is the patient responsive?",
+            imageSrc: cpr01,
+            hint: "Try gently shaking the patient and asking if they are okay",
             answers: [
                 {
                     answer: "Yes",
@@ -45,9 +51,9 @@ function Assessment() {
         },
         {
             id: 3,
-            question: "Is the victim breathing normally or at all?",
-            imageSrc: "/placeholder.png",
-            hint: "Look for the victim's chest to rise and fall",
+            question: "Is the patient breathing normally or at all?",
+            imageSrc: cpr0,
+            hint: "Look for the patient's chest to rise and fall",
             answers: [
                 {
                     answer: "Yes",
@@ -67,11 +73,13 @@ function Assessment() {
         {
             code: 1,
             description: "CPR is needed",
+            imageSrc: null,
             message: null
         },
         {
             code: 2,
-            description: "CPR is not needed, victim is breathing, and medical attention is needed. Exit the assessment",
+            description: "No CPR required. Immediate medical care is necessary. End assessment",
+            imageSrc: nocpr,
             message: `
             The patient is breathing but is unresponsive.
             Call or have someone call emergency services immediately.
@@ -80,17 +88,18 @@ function Assessment() {
         {
             code: 3,
             description: "Immediate danger to you or others at the scene. Exit the assessment",
+            imageSrc: help,
             message: `
             There is immediate danger to you or others at the scene.
-            Move to a safe location and call emergency services immediately.
-            If possible, reassess the situation from a safe distance.
+             Move to a safe place and call emergency services. Reassess from a safe distance if possible.
             `
         },
         {
             code: 4,
             description: "CPR is not needed, victim is breathing, and no immediate danger is present. Exit the assessment",
+            imageSrc: nocpr,
             message: `
-            The patient is breathing and there is no immediate danger to you or others at the scene, hence CPR is not needed.
+            The patient is breathing and no immediate danger identified, hence CPR is not needed.
             `
         }
     ]
@@ -125,13 +134,13 @@ function Assessment() {
 
     return (
         <div>
-            <header className="bg-gray-800 h-[10vh] flex justify-center items-center">
+            <Label className="bg-gray-800 h-[10vh] flex justify-center items-center text-center text-white text-2xl">
                 <RxArrowLeft className="text-white text-3xl m-2" />
-                <h1 className="text-center">CPRnow Pre-Assessment</h1>
-            </header>
+                Pre-Assessment
+            </Label>
             <main className="p-2">
                 {assessmentStatus > 1 ? (
-                    <AssessmentResult message={statusCodes.find(statusCode => statusCode.code === assessmentStatus).message} />
+                    <AssessmentResult imageSrc ={statusCodes.find(statusCode => statusCode.code === assessmentStatus).imageSrc} message={statusCodes.find(statusCode => statusCode.code === assessmentStatus).message} />
                 ) : (
                     <Question {...questions.find(question => question.id === currentQuestion)} setCurrentAnswer={setCurrentAnswer} />
                 )}

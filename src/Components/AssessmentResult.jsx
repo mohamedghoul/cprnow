@@ -1,11 +1,15 @@
 import { RxArrowLeft } from "react-icons/rx";
 import { useState, useEffect } from "react";
-import Question from "./Question";
+import { Label } from "./ui/label";
+
 
 function AssessmentResult(props) {
+  console.log(props.imageSrc)
   return (
-    <div className="flex justify-center items-center h-[80vh]">
-        <h2 className="p-4">{props.message}</h2>
+    <div className="flex flex-col justify-center items-center h-[80vh]">
+        { props.imageSrc ? <img src={props.imageSrc} alt="Image" className="rounded-md object-contain" /> : <></> }
+
+        <Label className="p-4 text-2xl text-center">{props.message}</Label>
     </div>
   );
 }
